@@ -1,0 +1,2 @@
+- 深入理解 react & **redux**
+- webpack
