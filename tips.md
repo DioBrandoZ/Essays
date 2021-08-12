@@ -16,3 +16,6 @@ svn st | grep '^\?' | tr '^\?' ' ' | sed 's/[ ]*//' | sed 's/[ ]/\\ /g' | xargs 
 
 + 提交新更改（类似git commit）
 svn commit -m 'xxxxx commit log'
+
+### redux
+view -> action -> reducer -> store -> view
