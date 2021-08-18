@@ -19,3 +19,7 @@ svn commit -m 'xxxxx commit log'
 
 ### redux
 view -> action -> reducer -> store -> view
+
+## umi & antd
+umi^3 和 antd^4版本，替换moment为dayjs报错，坑
+[issues链接](https://github.com/ant-design/ant-design-pro/issues/6063)
