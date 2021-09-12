@@ -23,3 +23,12 @@ view -> action -> reducer -> store -> view
 ## umi & antd
 umi^3 和 antd^4版本，替换moment为dayjs报错，坑
 [issues链接](https://github.com/ant-design/ant-design-pro/issues/6063)
+
+## React-Creat-App
+css module 无效
+将所有的 .css/.lee/.scss 等样式文件都修改成 .module.css/.module.less/.module.scss 等。即可使用 CSS Modules 的方式进行引入使用了。
+
+## declare function type
+interface mode {
+  fn: () => void
+}
