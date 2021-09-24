@@ -52,3 +52,35 @@ Fiber，虚拟DOM在React中的正式称呼。中文翻译叫做纤程，与进�
 React Fiber可以理解为：React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。
 
 其中每个任务更新单元为React Element对应的Fiber节点。
+
+## 双缓存
+在内存中构建并直接替换
+
+在内存中绘制当前帧的动画，绘制好后直接用当前帧替换上一帧
+
+## 双缓存Fiber树
+React中最多存在两颗Fiber树，current Fiber树和 workInProgress Fiber树，两颗树的Fiber节点通过alternate属性连接。
+```
+currentFiber.alternate === workInProgressFiber;
+workInProgressFiber.alternate === currentFiber;
+```
+React应用的根节点通过使current指针在不同Fiber树的rootFiber间切换来完成current Fiber树指向的切换。
+
+即当workInProgress Fiber树构建完成交给Renderer渲染在页面上后，应用根节点的current指针指向workInProgress Fiber树，此时workInProgress Fiber树就变为current Fiber树。
+
+每次状态更新都会产生新的workInProgress Fiber树，通过current与workInProgress的替换，完成DOM更新。
+
+## mount时
+创建fiberRootNode（整个应用的根结点） 和 rootFiber（App组件树的根结点）
+
+此时，currentFiber树有rootFiber
+
+然后构建在workInProgress树，此时两树只有rootFiber节点可复用（通过alternate属性相连）
+
+构建完成后，在commit阶段渲染到页面fiberRootNode的current指向wordInProgress树的rootFiber使其变成current树
+
+## update时
+复用current Fiber树对应的节点数据构建一颗新的workInProgress树。
+> 这个决定是否复用的过程就是Diff算法
+
+workInProgress Fiber 树在render阶段完成构建后进入commit阶段渲染到页面上。渲染完毕后，workInProgress Fiber 树变为current Fiber 树。
