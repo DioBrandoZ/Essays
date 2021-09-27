@@ -126,3 +126,41 @@ export const getRem = () => {
   }
   return rem
 }
+
+
+// 封装 request 请求
+// import qs from 'qs';
+
+interface optionsType {
+  url: string
+  params?: any
+  data?: any
+  method?: string
+  headers?: any
+}
+
+export const request = (options: optionsType) => {
+  let {
+    url, params = {}, data = {}, method = 'GET', headers = {},
+  } = options;
+
+  const paramsStr = qs.stringify(params);
+  if (paramsStr) {
+    url += url.indexOf('?') === -1 ? '?' : '&';
+    url += paramsStr;
+  }
+
+  // @ts-ignore
+  const req = fetch(url, Object.assign({}, {
+    method,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      ...headers,
+    },
+    credentials: 'include',
+    body: method === 'GET' ? null : JSON.stringify(data), // GET, DELETE方法不能有body字段
+  }));
+
+  return req;
+}
