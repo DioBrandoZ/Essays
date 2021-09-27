@@ -84,3 +84,30 @@ React应用的根节点通过使current指针在不同Fiber树的rootFiber间切
 > 这个决定是否复用的过程就是Diff算法
 
 workInProgress Fiber 树在render阶段完成构建后进入commit阶段渲染到页面上。渲染完毕后，workInProgress Fiber 树变为current Fiber 树。
+
+# JSX 与 Fiber节点
+JSX是一种描述当前组件内容的数据结构，他不包含组件schedule、reconcile、render所需的相关信息。
+
+如：
++ 组件在更新中的优先级
++ 组件的state
++ 组件被打上的用于Renderer的标记
+
+这些内容都包含在Fiber节点中。
+
+在组件mount时，Reconciler根据JSX描述的组件内容生成组件对应的Fiber节点。
+
+在update时，Reconciler将JSX与Fiber节点保存的数据对比，生成组件对应的Fiber节点，并根据对比结果为Fiber节点打上标记。
+
+# Diff算法
+一个DOM节点在某一时刻最多会有4个节点和他相关。
+
+1. current Fiber。如果该DOM节点已在页面中，current Fiber代表该DOM节点对应的Fiber节点。
+
+2. workInProgress Fiber。如果该DOM节点将在本次更新中渲染到页面中，workInProgress Fiber代表该DOM节点对应的Fiber节点。
+
+3. DOM节点本身。
+
+4. JSX对象。即ClassComponent的render方法的返回结果，或FunctionComponent的调用结果。JSX对象中包含描述DOM节点的信息。
+
+Diff算法的本质是对比1和4，生成2。
