@@ -164,3 +164,18 @@ export const request = (options: optionsType) => {
 
   return req;
 }
+
+/**
+ * 获取元素相对浏览器的位置
+ * @param {string} objId
+ * @returns {Object}
+ */
+const getPosition = (objId: string) => {
+  const div = document.getElementById(objId)  // 元素
+  const { scrollLeft, scrollTop } = document.documentElement // 浏览器滚动条移动的位置
+
+  return {
+    left: div.getBoundingClientRect().left + scrollLeft,
+    top: div.getBoundingClientRect().top + scrollTop
+  }
+}
