@@ -32,3 +32,8 @@ css module 无效
 interface mode {
   fn: () => void
 }
+
+## edit hosts
+```
+sudo vi /etc/hosts
+```
