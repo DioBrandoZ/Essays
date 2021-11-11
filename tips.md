@@ -37,3 +37,10 @@ interface mode {
 ```
 sudo vi /etc/hosts
 ```
+
+## git 简写
+```
+git config --global alias.co checkout  
+git config --global alias.br branch  
+git config --global alias.ci commit 
+```
