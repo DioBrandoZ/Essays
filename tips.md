@@ -44,3 +44,6 @@ git config --global alias.co checkout
 git config --global alias.br branch  
 git config --global alias.ci commit 
 ```
+
+## 移动端，覆盖pointer点击样式
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
