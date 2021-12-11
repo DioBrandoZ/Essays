@@ -32,3 +32,18 @@ css module 无效
 interface mode {
   fn: () => void
 }
+
+## edit hosts
+```
+sudo vi /etc/hosts
+```
+
+## git 简写
+```
+git config --global alias.co checkout  
+git config --global alias.br branch  
+git config --global alias.ci commit 
+```
+
+## 移动端，覆盖pointer点击样式
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
