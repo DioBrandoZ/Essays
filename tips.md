@@ -47,3 +47,6 @@ git config --global alias.ci commit
 
 ## 移动端，覆盖pointer点击样式
 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+# 向上管理
+定期主动向上级汇报工作，保持联系不要脱节
