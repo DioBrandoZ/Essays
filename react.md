@@ -125,3 +125,11 @@ Diff算法的本质是对比1和4，生成2。
 
 第二步，判断DOM节点是否可以复用
 
+
+
+refProp: PropTypes.oneOfType([
+    // Either a function
+    PropTypes.func, 
+    // Or the instance of a DOM native element (see the note about SSR)
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+])
