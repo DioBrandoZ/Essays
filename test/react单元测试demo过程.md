@@ -53,4 +53,4 @@ transformIgnorePatterns: [
 
 [react-testing-library 文档](https://testing-library.com/docs/react-testing-library/intro)
 
-[Jest 文档](https://jestjs.io/zh-Hans/)
+[Jest 文档](https://jestjs.io/zh-Hans/docs/getting-started)
