@@ -1,0 +1,276 @@
+html,
+body {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: PingFang SC, -apple-system, Microsoft YaHei, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  /* 文字颜色 */
+  --clr-white: #fff;
+  --clr-0: #7f4442;
+  --clr-1: #894e53;
+  --clr-2: #985755;
+  --clr-3: #ff7110;
+  --clr-4: #828b94;
+  --clr-5: #4d535c;
+  --clr-6: #fef9ea;
+  --clr-7: #8c4500;
+  --clr-8: #957176;
+  --clr-9: #fff8ee;
+  --clr-correct: #7ed321;
+  --clr-wrong: #fd6138;
+
+  /* 背景颜色 */
+  --bg-0: radial-gradient(70.99% 94.26% at 96.61% -7.24%,#fffadf 0%,rgba(255, 255, 255, 0) 100%),
+    linear-gradient(170.03deg, #ffede0 10.74%, rgba(255, 255, 255, 0) 91.89%),
+    #fff;
+  --bg-1: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), linear-gradient(0deg, var(--clr-8), var(--clr-8)), #a45e5e;
+  --bg-2: var(--clr-8);
+}
+
+/* 禁用 */
+.disabled {
+  cursor: not-allowed;
+}
+
+/* 水平垂直居中 */
+.hv-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 竖直方向 水平垂直居中 */
+.hv-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 竖直方向 space-between */
+.hv-column-space {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 水平居中 */
+.h-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* 垂直居中 */
+.v-center {
+  display: flex;
+  align-items: center;
+}
+
+/* 绝对定位 start */
+
+.abs-hv-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.abs-h-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.abs-v-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 绝对定位 end */
+
+/* 一行省略 */
+.g-elps {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 两行省略 */
+.m-elps {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 简单动效 start */
+.hover-zoom-in,
+.hover-zoom-out {
+  transition: transform 500ms;
+}
+
+/* 悬浮放大 */
+.hover-zoom-in:hover {
+  transform: scale(1.05);
+}
+
+/* 悬浮缩小 */
+.hover-zoom-out:hover {
+  transform: scale(0.9);
+}
+
+/* 简单动效 end */
+
+/* 顶栏下边距 */
+.header-margin-b {
+  margin-bottom: 0.48rem;
+}
+
+/* 隐藏滚动条 start */
+.hiddenScrollBar {
+  position: relative;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hiddenScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 隐藏滚动条 end */
+
+/* toast */
+#__toast {
+  position: fixed;
+  left: 50%;
+  bottom: 0.3rem;
+  z-index: 100;
+  max-width: 6rem;
+  margin: 0 auto;
+  padding: 0.18rem 0.4rem;
+  color: var(--clr-white);
+  font-size: 0.2rem;
+  text-align: center;
+  background: rgba(4,8,18, 0.6);
+  border-radius: 0.8rem;
+  transform: translateX(-50%);
+}
+
+/* nprogress定制 start */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--clr-0);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--clr-0), 0 0 5px var(--clr-0);
+  opacity: 1;
+  transform: rotate(3deg) translate(0, -4px);
+}
+
+/* nprogress定制 end */
+
+/* 星星得分动效样式 start */
+.starScoreAnim {
+  transform: scale(0);
+  animation-timing-function: linear;
+  animation-duration: 0.2s;
+  animation-name: starScale;
+  animation-fill-mode: forwards;
+}
+
+.starScoreAnim:first-child {
+  animation-delay: 0;
+}
+
+.starScoreAnim:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.starScoreAnim:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes starScale {
+  0% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.17);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 星星得分动效样式 end */
