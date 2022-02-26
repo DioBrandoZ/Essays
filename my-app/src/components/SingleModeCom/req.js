@@ -7,21 +7,39 @@ const r = () => new Promise(
   }
 )
 
-class req {
-  static req() {
-    if (this.loading) {
-      return this.request
-    }
-    this.loading = true
-    const that = this
-    this.request = new Promise((res) => {
+// class req {
+//   static req() {
+//     if (this.loading) {
+//       return this.request
+//     }
+//     this.loading = true
+//     const that = this
+//     this.request = new Promise((res) => {
+//       r().then((data) => {
+//         res(data)
+//         that.loading = false
+//       })
+//     })
+//     return this.request
+//   }
+// }
+
+// export default req
+const req = function() {
+  let loading
+  let request
+
+  return function () {
+    if (loading) return request
+    loading = true
+    request = new Promise((res) => {
       r().then((data) => {
+        loading = false
         res(data)
-        that.loading = false
       })
     })
-    return this.request
+    return request
   }
-}
+}()
 
 export default req
