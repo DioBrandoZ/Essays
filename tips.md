@@ -19,6 +19,7 @@ svn commit -m 'xxxxx commit log'
 
 ### redux
 view -> action -> reducer -> store -> view
+三大原则：单一数据源、state只读、纯函数修改
 
 ## umi & antd
 umi^3 和 antd^4版本，替换moment为dayjs报错，坑
