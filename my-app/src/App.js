@@ -3,9 +3,10 @@ import MemoCom from './components/memo';
 import './App.css';
 
 const App = () => {
-  const [name, setName] = useState({name: 'zzq'})
+  const [name, setName] = useState('zzq')
   const [age, setAge] = useState(24)
   const ref = useRef(null)
+  const text= '<h1>hello world</h1>'
 
   const fn = (e) => {
     if(!ref.current.contains(e.target)) {
@@ -34,12 +35,14 @@ const App = () => {
   return (
     <div onClick={() => { console.log('wrap') }}>
       {console.log('div render')}
-      <button onClick={() => { setName(prev => ({name: `${prev.name}`})) }}>change name</button> name: {name.name} <br/>
+      <button onClick={() => { setName(prev => prev) }}>change name</button> name: {name} <br/>
       <button onClick={() => { setAge(age => age + 1) }}>change age</button>age: {age} <br/>
       <div className='test' ref={ref}>
-        <div>test</div>
+        <div className='bfcMargin'>bfc margin</div>
+        <div className='bfcMargin'>bfc margin</div>
+        <div className='bfcMargin'>bfc margin</div>
       </div>
-      {/* <MemoCom name={name}/> */}
+      <MemoCom name={name}/>
     </div>
   )
 }

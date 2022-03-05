@@ -8,3 +8,8 @@
   margin: 100px auto;
   background-color: aquamarine;
 }
+
+.bfcMargin {
+  background-color: bisque;
+  margin: 30px;
+}
