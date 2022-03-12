@@ -46,12 +46,13 @@ React16采用新的Reconciler。
 
 Reconciler内部采用了Fiber的架构。
 
+
+
+
 # Fiber架构
-Fiber，虚拟DOM在React中的正式称呼。中文翻译叫做纤程，与进程（Process）、线程（Thread）、协程（Coroutine）同为程序执行过程。
+Fiber，虚拟DOM在React中的正式称呼。
 
 React Fiber可以理解为：React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。
-
-其中每个任务更新单元为React Element对应的Fiber节点。
 
 ## 双缓存
 在内存中构建并直接替换
