@@ -1,3 +1,9 @@
+
+ts是js的超集，增加了静态类型、类、模块、接口和类型注解
+
+执行环境层面：浏览器引擎和Node.js都能够直接运行JavaScript，但无法直接运行TypeScript。
+时序层面：TypeScript被真正执行前，会通过编译转换生成JavaScript，之后才能被解释执行。
+
 1、循环依赖 & 类型空间
 js不允许循环依赖，如A、B两个模块，不应该互相import对方，但是在ts中，可能存在A import B，同时B又需要 import A作为类型声明。
 这时就可以使用import type { A } from './A'
