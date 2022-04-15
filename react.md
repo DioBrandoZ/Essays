@@ -134,3 +134,13 @@ refProp: PropTypes.oneOfType([
     // Or the instance of a DOM native element (see the note about SSR)
     PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 ])
+
+
+## react hook
+react按顺序来区分不同的 hook
+
+当 react 重新渲染时，会生成一个新的 fiber 树，而这里会根据之前已经生成的 FiberNode ，拿到之前的 hook ，再复制一份到新的 FiberNode 上，生成一个新的 hooks 链表。
+
+而这个 hook 是怎么拿的？是去遍历 hooks 链表拿的，所以每次都会按顺序拿下一个 hook ，然后复制到新的 FiberNode 上。可以理解为这个 updateWorkInProgressHook 每次都会按顺序返回下一个 hook 。
+
+拿到这个 hook 之后再根据我们 setState 的值或者其他的一些东西去更新 hook 对象上的属性。这一步也就是 updateMemo 干的事情。

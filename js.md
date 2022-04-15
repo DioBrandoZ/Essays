@@ -8,6 +8,24 @@ String.fromCharCode(65) => A
 'A'.charCodeAt(0) => 65
 
 
+Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名。
+
+Map 和 Object
+key， map可以为任意值，Object只能为string或symbol
+键值顺序，map是插入顺序，object不一定
+
+Map可以遍历，
+Set.prototype.keys()：返回键名的遍历器
+Set.prototype.values()：返回键值的遍历器
+Set.prototype.entries()：返回键值对的遍历器
+Set.prototype.forEach()：使用回调函数遍历每个成员
+
+Object
+Object.keys()或Object.entries()
+for...in也可以迭代Object的可枚举属性
+
+map频繁增减键值对时表现会更好
+
 
 ```js
 let ret = 0
@@ -306,4 +324,29 @@ const fn = (time) => {
   
 }
 
+```
+
+```js
+function asyncToGenerator(generatorFunc) {
+    return function() {
+      const gen = generatorFunc.apply(this, arguments)
+      return new Promise((resolve, reject) => {
+        function step(key, arg) {
+          let generatorResult
+          try {
+            generatorResult = gen[key](arg)
+          } catch (error) {
+            return reject(error)
+          }
+          const { value, done } = generatorResult
+          if (done) {
+            return resolve(value)
+          } else {
+            return Promise.resolve(value).then(val => step('next', val), err => step('throw', err))
+          }
+        }
+        step("next")
+      })
+    }
+}
 ```
