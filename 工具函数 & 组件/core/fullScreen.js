@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import s from './index.module.css'
 
 /**
  * 
@@ -71,8 +70,31 @@ const TeachVideoBtn = ({
     style={btnStyle}
   >
     <div className={s.free} />
-    <video id="teach_video" className={`${!isPlaying && s.video}`} />
+    <video
+      id="teach_video"
+      className={`${s.video} ${!isPlaying && s.hidden}`}
+      controls
+      controlsList="nodownload noplaybackrate"
+      disablePictureInPicture
+    />
   </div>
 }
 
 export default TeachVideoBtn
+
+// .video::-webkit-media-controls-mute-button {
+//   display: none !important;
+// }
+
+
+// .video::-webkit-media-controls-current-time-display {
+//   display: none !important;
+// }
+
+// .video::-webkit-media-controls-time-remaining-display {
+//   display: none !important;
+// }
+
+// .video::-webkit-media-controls-fullscreen-button {
+//   display: none !important;
+// }
