@@ -1,4 +1,16 @@
 ```js
+new Promise((res, rej) => {
+  rej('err')
+}).then(() => {
+  console.log('1')
+}, () => {
+  console.log('2')
+}).then(() => {
+  console.log('3')
+}, () => {
+  console.log('4')
+})
+
 // 事件队列
 const fn1 = () => new Promise((res) => {
   console.log(0)
@@ -54,3 +66,7 @@ const fn = (time) => {
 }
 
 ```
+
+实习学到的东西，遇到的问题，解决方式
+技术上的高光时刻
+
