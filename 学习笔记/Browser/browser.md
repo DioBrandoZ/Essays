@@ -29,6 +29,7 @@ var b = a;
 a = 1; // 现在，“这个对象”的原始引用 a 被 b 替换了，但是b还引用了，所以没回收
 b = undefined; // 现在没有任何东西引用了该对象，回收
 
+
 // 标记清除法
 // 当变量进入执行环境（作用域）时标记为“进入环境”，退出时标记为“退出环境”，回收退出环境的变量
 ```
@@ -66,3 +67,20 @@ dom 引用: dom 元素被删除时，内存中的引用未被正确清空
 - 数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭
 - 作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的
 - webStorage(webstorage是本地存储，存储在客户端，包括localStorage和sessionStorage)支持事件通知机制，可以将数据更新的通知发送给监听者
+
+### data-*
+data-* 全局属性 是一类被称为自定义数据属性的属性
+
+* 可以使用遵循 xml 名称生产规则 的任何名称来被替换，并具有以下限制：
+该名称不能以xml开头，无论这些字母是大写还是小写；
+该名称不能包含任何分号 (U+003A)；
+该名称不能包含 A 至 Z 的大写字母
+
+```html
+<div id='test' data-name="zzq" data-age="24" ></div>
+```
+```js
+const testDom = document.getElementById('test')
+testDom.dataset // {name: 'zzq', age: '24'}
+```
+
