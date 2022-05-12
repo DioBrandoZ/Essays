@@ -84,3 +84,35 @@ const testDom = document.getElementById('test')
 testDom.dataset // {name: 'zzq', age: '24'}
 ```
 
+## box-sizing
+默认content-box，width和height是content的宽高
+box-siziing：content+padding+border =》 解决了height: 100%滚动条的问题
+
+
+## getBoundingClientRect
+getBoundingClientRect用于获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+getBoundingClientRect是DOM元素到浏览器可视范围的距离（不包含文档卷起的部分）
+
+该函数返回一个Object对象，该对象有6个属性：top,left,right,bottom,width,height
+
+width、height是元素自身的宽高
+top和bottom是元素上下边到视窗**上**边的距离
+left和right是元素左右边到视窗**左**边的距离
+
+
+```js
+function isElementInViewport(el) {
+  //获取元素是否在可视区域
+  var rect = el.getBoundingClientRect();
+  const { top, left, bottom, right } = rect
+
+  const wh = (window.innerHeight || document.documentElement.clientHeight)
+  const ww = (window.innerWidth || document.documentElement.clientWidth)
+
+  return !(bottom < 0 || top > wh || right < 0 || left > ww)
+}
+```
+
+
+## 封装select
+renderItem
