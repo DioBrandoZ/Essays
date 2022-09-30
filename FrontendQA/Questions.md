@@ -1,4 +1,32 @@
 ```js
+console.log(a)
+let a = 2
+
+console.log(b)
+var b = 2
+
+foo()
+function foo() {
+  console.log(2)
+}
+var foo = function() {
+  console.log(1)
+}
+
+// ReferenceError: a is not defined
+// undefined
+// 2
+
+
+// Uncaught ReferenceError:
+// Cannot access 'a' before initialization
+let a = 1
+{
+  a = 2
+  let a 
+}
+
+
 new Promise((res, rej) => {
   rej('err')
 }).then(() => {
@@ -10,6 +38,7 @@ new Promise((res, rej) => {
 }, () => {
   console.log('4')
 })
+// 2、3
 
 // 事件队列
 const fn1 = () => new Promise((res) => {
@@ -42,7 +71,7 @@ new Promise((res) => {
   console.log(8)
 })
 
-356078412
+// 356078412
 
 
 // 封装请求函数timeout 
@@ -57,7 +86,7 @@ const fn = (request, time) => {
 
 // 追击问题
 /**
- * 输入当前时间，返回时针和分针下次相遇需要的时间
+ * 输入当前时间，返回在时钟上时针和分针下次相遇需要的时间
  * @param {string} time '15:00'
  * @param {number} 
  */
@@ -67,6 +96,18 @@ const fn = (time) => {
 
 ```
 
+toast提示
+
+开发需求
+学习方法
 实习学到的东西，遇到的问题，解决方式
 技术上的高光时刻
+你有什么想问我的吗
 
+
+console.log(1)
+
+useEffect(() => {
+  console.log(2)
+  return (() => { console.log(3) })
+}, [num])
