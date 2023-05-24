@@ -115,8 +115,8 @@ const getPosition = (objId: string) => {
   const { scrollLeft, scrollTop } = document.documentElement // 浏览器滚动条移动的位置
 
   return {
-    left: div.getBoundingClientRect().left + scrollLeft,
-    top: div.getBoundingClientRect().top + scrollTop
+    left: div!.getBoundingClientRect().left + scrollLeft,
+    top: div!.getBoundingClientRect().top + scrollTop
   }
 }
 
@@ -142,7 +142,7 @@ export function debounce(func, wait, immediate) {
           }, wait)
           if (callNow) func.apply(context, args)
       } else {
-          timer = setTimeout(function(){
+          timer = setTimeout(() => {
               func.apply(context, args)
           }, wait);
       }
