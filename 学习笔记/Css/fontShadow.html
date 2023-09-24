@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      .shadowFont {
+        position: relative;
+        margin: 30vh auto;
+        width: 15em;
+        font-size: 77px;
+        color: #308fcf;
+        font-weight: bolder;
+      }
+
+      .shadowFont::after {
+        content: '明月有情应识我，年年相见在他乡';
+        position: absolute;
+        left: -0.15em;
+        bottom: -0.2em;
+        z-index: -1;
+        color: rgba(0, 0, 0, 0.37);
+        transform: skew(30deg) scaleY(0.5);
+        width: 100%;
+        filter: blur(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shadowFont">
+      明月有情应识我，年年相见在他乡
+    </div>
+  </body>
+</html>
