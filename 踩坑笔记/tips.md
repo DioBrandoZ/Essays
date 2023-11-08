@@ -51,3 +51,7 @@ git config --global alias.ci commit
 
 # 向上管理
 定期主动向上级汇报工作，保持联系不要脱节
+
+# 中文输入法
+中文输入法会绕过input的onkeydown等事件
+可以使用oncompositionstart和oncompositionend事件判断输入状态
