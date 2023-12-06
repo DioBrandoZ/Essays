@@ -1,0 +1,34 @@
+<!-- http://127.0.0.1:5500/svgStroke/demo.html -->
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .a {
+        /* 指定短划线和缺口的长度 */
+        stroke-dasharray: 300;
+        /* 指定了 dash 模式到路径开始的距离 */
+        stroke-dashoffset: 300;
+        animation: dash 2s linear forwards;
+      }
+
+      @keyframes dash {
+        form {
+          stroke-dashoffset: var(300);
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <path class="a" d="M 10 10 h 100 v 50 h -100 Z" stroke="black" stroke-width="2" fill="transparent" />
+    </svg>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!-- http://127.0.0.1:5500/theme/index.html -->
+<html data-theme="dark">
+  <head>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+  </head>
+  <body>
+    <div class="content">
+      <button class="btn">botton</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.btn')
+      btn.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme')
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'light')
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })
+    </script>
+  </body>
+</html>
+

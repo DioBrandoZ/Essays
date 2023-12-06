@@ -1,0 +1,97 @@
+.btn {
+  padding: 0;
+  margin: 0;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn.type-1 {
+  background: #409eff;
+  color: #fff;
+}
+.btn.type-1:hover {
+  background: #a6d2ff;
+}
+.btn.type-1:active {
+  background: #006bd9;
+}
+.btn.type-1:disabled {
+  background: #c0dfff;
+}
+
+.btn.type-2 {
+  background: #67c23a;
+  color: #fff;
+}
+.btn.type-2:hover {
+  background: #a3db87;
+}
+.btn.type-2:active {
+  background: #3d7323;
+}
+.btn.type-2:disabled {
+  background: #b2e19b;
+}
+
+.btn.type-3 {
+  background: #8b590f;
+  color: #fff;
+}
+.btn.type-3:hover {
+  background: #e6941a;
+}
+.btn.type-3:active {
+  background: #2f1e05;
+}
+.btn.type-3:disabled {
+  background: #e99f31;
+}
+
+.btn.type-4 {
+  background: #f54343;
+  color: #fff;
+}
+.btn.type-4:hover {
+  background: #faa4a4;
+}
+.btn.type-4:active {
+  background: #c70b0b;
+}
+.btn.type-4:disabled {
+  background: #fbbcbc;
+}
+
+.btn.type-5 {
+  background: #6c6d71;
+  color: #fff;
+}
+.btn.type-5:hover {
+  background: #9fa0a4;
+}
+.btn.type-5:active {
+  background: #3a3b3d;
+}
+.btn.type-5:disabled {
+  background: #acadb0;
+}
+
+.btn.type-6 {
+  background: green;
+  color: #fff;
+}
+.btn.type-6:hover {
+  background: #00e600;
+}
+.btn.type-6:active {
+  background: #001a00;
+}
+.btn.type-6:disabled {
+  background: #01ff01;
+}
+
+/*# sourceMappingURL=index.css.map */
